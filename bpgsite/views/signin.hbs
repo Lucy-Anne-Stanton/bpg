@@ -1,0 +1,40 @@
+<section class="container">
+    <section class="userform form-container">
+        <form action="/users/login" method="post">
+            <section class="form-group text-center">
+                <h1>Sign In</h1>
+                <p>Please sign in to continue</p>
+            </section>
+            <section class="form-group text-center">
+                <img src="images/logosml.svg" alt="Bristol Photography Group" class="logo">
+            </section>
+            <section class="form-group">
+                <input type="email" id="txtEmail" name="email" class="form-control" placeholder="Email" tabindex="1" required>
+            </section>
+            <section class="form-group">
+                <input type="password" id="txtPassword" name="password" class="form-control" placeholder="Password" tabindex="2" required>
+            </section>
+            <section class="form-group">
+                <input type="submit" id="btnLogin" class="btn btn-primary fullwidth" value="Login">
+            </section>
+            <!-- Remember Me -->
+            <section class="form-group">
+                <label for="rememberMe">Remember me</label>
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+            </section>
+            
+            <section class="form-group">
+                <section class="row">
+                    <section class="col-xs-12">Don't have an account? <a href="/users/create">Create here</a></section>
+                </section>
+            </section>
+            <section class="form-group">
+                <section class="row">
+                    {{#if error}}
+                    <section style="color: red;">{{error}}</section>
+                    {{/if}}
+                </section>
+            </section>
+        </form>
+    </section>
+</section>
