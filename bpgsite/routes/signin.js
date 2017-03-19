@@ -6,10 +6,12 @@ router.get('/', function(req, res, next) {
     res.redirect('/');
   }
   res.render('signin', { 
-     title: 'Dashboard'
+     title: 'Sign In',
+     user: req.user
      
       
   });
 });
 
 module.exports = router;
+

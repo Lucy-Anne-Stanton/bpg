@@ -3,13 +3,18 @@ var Schema = mongoose.Schema;
 var userService = require('../services/user-services');
 
 var userSchema = new Schema({
-firstName : {type:String,required :'First Name is required'},
-lastName : {type:String,required:'Last Name is required'},
-email: {type:String,required:'Email is required'},
-password : {type:String,required:'Password is required'},
-created : {type: Date, default : Date.now }
+firstName : {type: String, required : 'First Name is required'},
+displayName: {type: String},
+userInfo: {type: String},
+userPhoto: {type: String},
+username: {type: Number},
+provider: {type: String},
+providerIdentifierField: {type: String},
+organiser: {type: Boolean}
+//,
+//car : {type: boolean, default : false }
 });
-
+/*
 userSchema.path('email').validate(function(value,next){
     userService.findUser(value,function(err,user){
         if(err){
@@ -18,7 +23,7 @@ userSchema.path('email').validate(function(value,next){
         }
         next(!user);
     });
-}, 'That email is already in use');
+}, 'That email is already in use'); */
 
 var User = mongoose.model('User',userSchema);
 module.exports = {

@@ -1,5 +1,4 @@
 ct-h.moc h2 span.onehtml {
-    font-family: 'Open Sans',sans-serif!important;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -1346,7 +1345,6 @@ html {
 }
 
 body {
-    font-family: 'Open Sans',sans-serif!important;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
@@ -1354,7 +1352,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-
+/*
 body:after {
     position: absolute;
     z-index: -1;
@@ -1366,7 +1364,7 @@ body:after {
     top: 0;
     left: 0;
     opacity: .3;
-}
+} */
 
 input, button, select, textarea {
     font-family: inherit;
@@ -6431,7 +6429,6 @@ button.close {
     position: absolute;
     z-index: 1070;
     display: block;
-    font-family: 'Open Sans',sans-serif!important;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.4;
@@ -6554,7 +6551,6 @@ button.close {
     display: none;
     max-width: 276px;
     padding: 1px;
-    font-family: 'Open Sans',sans-serif!important;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -6834,7 +6830,6 @@ button.close {
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    font-family: 'Open Sans',sans-serif!important;
     line-height: 1;
 }
 
@@ -7240,7 +7235,6 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
     color: #FFF;
     font-weight: 600;
-    font-family: 'Open Sans',sans-serif;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
 }
 
@@ -7271,8 +7265,6 @@ h6 {
 
 a, a:active, a:visited {
     color: #fff;
-    font-family: 'Open Sans',sans-serif!important;
-    word-break: break-all;
 }
 
 a:hover, a:focus {
@@ -7423,7 +7415,6 @@ ul.social-bar-white li a {
     -moz-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
-    font-family: 'Open Sans',sans-serif!important;
 }
 
 .social-bar-white li a {
@@ -7697,7 +7688,6 @@ footer {
     padding: 3px 2px;
     text-transform: uppercase;
     height: 45px;
-    font-family: Oswald;
     font-weight: 400;
     display: inline-block;
     margin-top: 16px;
@@ -7788,7 +7778,6 @@ footer {
 .c-l li:before {
     content: ".";
     font-weight: 800;
-    font-family: Oswald;
     color: #f58d30;
     font-size: 40px;
     line-height: 0;
@@ -8063,7 +8052,6 @@ h3.c-hh {
     label {
         font-size: 13px;
         font-weight: 600!important;
-        font-family: 'Open Sans';
     }
 
     .con_mng {
@@ -8204,7 +8192,6 @@ h3.c-hh {
     text-align: center;
     text-shadow: none;
     font-weight: 400;
-    font-family: Oswald;
     text-transform: uppercase;
 }
 
@@ -8236,7 +8223,6 @@ h3.c-hh {
     width: 100%;
     margin: 0 auto;
     background: #fff;
-    font-family: oswald;
     font-size: 20px;
     text-align: center;
 }
@@ -8262,7 +8248,6 @@ h3.c-hh {
     margin: 25px auto 0;
     float: none;
     display: block;
-    font-family: oswald;
     min-width: 200px;
     background: #2b1501;
     letter-spacing: 1px;

@@ -1,0 +1,134 @@
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top big">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/images/logosml.svg" id="logo" class="big" />
+                    <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="home"><a href="/">Home</a></li>
+                    <li class="active meet"><a href="/meet">Meet the Organisers</a></li>
+                    <li class="events"><a href="/events">Events</a></li>
+                    <li class="past-events"><a href="/past-events">Past Events</a></li>
+                    <!-- Unless a user has signed in, show the sign in/register buttons -->
+                    {{#unless user.displayName}}
+                    <li class="signin">
+                        <a href="/signin">Sign In</a>
+                    </li>
+                    {{/unless}}
+                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    {{#if user.displayName}}
+                    <li class="user">
+                        <span>Hi, {{user.displayName}}!</span>
+                    </li>
+                    <li class="logout">
+                        <a href="/users/logout">Sign Out</a>
+                    </li>
+                    {{/if}}
+
+
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+</header>
+
+
+
+
+<div class="event-details">
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-title">
+                <h1 class="title">{{title}}: {{firstName}}</h1>
+            </div>
+        </div>
+    </div>
+    <!-- /.banner -->
+
+
+
+
+    <div class="container">
+        {{#contains edit "true"}}
+        <div class="edit">
+
+
+            <section class="userform form-container">
+                <form action="/edit/{{id}}" method="post">
+                    <div class="form-group">
+                        <label for="firstName">Name</label>
+                        <input type="text" class="form-control" name="firstName" id="firstName" aria-describedby="nameHelp" placeholder="{{firstName}}">
+                        <small id="nameHelp" class="form-text text-muted">If you leave this area blank your name won't change.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <input type="text" class="form-control" name="userPhoto" id="photo" aria-describedby="photoHelp" placeholder="{{userPhoto}}">
+                        <small id="photoHelp" class="form-text text-muted">If you leave this area blank your picture won't change.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="userInfo">Write information about you here (if you don't write anything the original text will be used).</label>
+                        <textarea class="form-control" name="userInfo" id="userInfo" rows="3" placeholder="{{userInfo}}"></textarea>
+                    </div>
+
+                    <a class="btn back-btn inline" href="/user/{{id}}">Back</a><button type="submit" class="btn btn-secondary inline">Update</button>
+                </form>
+            </section>
+        </div>
+        {{/contains}}
+
+
+
+
+    </div>
+    <!-- /.container -->
+</div>
+<footer>
+    <div class="left col-sm-4 col-xs-12">
+        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank"
+            title="BPG code of conduct">
+        BPG Code of Conduct
+        </a>
+    </div>
+    <div class="center col-sm-4 col-xs-12">
+        <a class="meet" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank" title="Join us on Meetup!"></a>
+        <a class="flickr" href="https://www.flickr.com/groups/meetupbpg/" target="_blank" title="Join us on Flickr!"></a>
+        <a class="instagram" href="https://www.instagram.com/bpger/?hl=en" target="_blank" title="Follow us on Instagram!"></a>
+        <a class="twitter" href="https://twitter.com/bpger?lang=en" target="_blank" title="Follow us on Twitter!"></a>
+    </div>
+    <div class="right col-sm-4 col-xs-12">
+        BPG 2010 | Website created by Lucy Stanton 2017
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+
+<domflags id="domflags-root"></domflags>
+
+<script src="/javascripts/animate.js"></script>
+
+
+</body>
+
+</html>

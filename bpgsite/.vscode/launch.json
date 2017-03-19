@@ -19,7 +19,8 @@
             ],
             "env": {
                 "NODE ENV": "development",
-                "DEBUG":"bpgsite:* npm start"
+                "DEBUG":"bpgsite:* npm start",
+                "DATABASE_HOST": "127.0.0.1"
             },
             "externalConsole": false,
             "sourceMaps": false,

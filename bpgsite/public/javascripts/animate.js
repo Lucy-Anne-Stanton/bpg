@@ -1,13 +1,20 @@
-// fade in code (GSAP)
-TweenMax.fromTo("#logo", 6, {x:0, opacity:0}, {x:0, opacity:1});
+$(document).ready(function(){
+    if (window.innerWidth < 700) {
+    $('#logo').addClass('noAnimate');
+  
+  $('.navbar.navbar-inverse.navbar-fixed-top').addClass('shrink');
+  $('.navbar.navbar-inverse.navbar-fixed-top').removeClass('big');
+  }
+  else{
+      // fade in code (GSAP)
 
-TweenMax.fromTo("#text", 6, {x:0, opacity:0}, {x:0, opacity:1});
 
 
 //Scroll code (jQuery - this should only be used to alternate from scroll up to down, but this is how the animation is working so far)
 
 $(window).scroll(function() {
   if ($(document).scrollTop() > 50) {
+      
     $('nav').addClass('shrink');
     $('nav').removeClass('big');
       
@@ -16,7 +23,7 @@ $(window).scroll(function() {
       
     $('#text').addClass('shrink');
     $('#text').removeClass('big');
-  } else {
+   } else {
     $('nav').removeClass('shrink');
     $('nav').addClass('big');
       
@@ -26,6 +33,13 @@ $(window).scroll(function() {
     $('#text').removeClass('shrink');
     $('#text').addClass('big');
   }
+
+  if (window.innerWidth < 700) {
+      
+    $('#logo').removeClass('shrink');
+    $('#logo').removeClass('big');
+  }
+
 });
 
 $(function(){
@@ -34,15 +48,13 @@ $(function(){
 });
 
 $(window).scroll(function(){
-    if($(document).scrollTop() > 50)
-    {
-        if($('#logo').data('size') == 'big')
-        {
-            $('#logo').data('size','small');
-            $('#logo').stop().animate({
-               width:'65.03px',
-              height:'56px',
-              marginLeft:'-20px'
+    if($(document).scrollTop() > 50) {
+        if($('#logo.shrink').data('size') == 'big') {
+            $('#logo.shrink').data('size','small');
+            $('#logo.shrink').stop().animate({
+               width:'3.214rem',
+              height:'3.214rem',
+              display: 'inline-block'
             },1000);
         }
         
@@ -50,8 +62,9 @@ $(window).scroll(function(){
         {
             $('#text').data('size','small');
             $('#text').stop().animate({
-              width:'50.47px',
-              height:'56px',
+              width:'3.214rem',
+              height:'3.214rem',
+              display: 'inline-block',
                 opacity:'0' 
             },1000);
         }
@@ -59,23 +72,27 @@ $(window).scroll(function(){
     else
     {
         
-        if($('#logo').data('size') == 'small')
+        if($('#logo.big').data('size') == 'small')
         {
-            $('#logo').data('size','big');
-            $('#logo').stop().animate({
-               width:'136px',
-              height:'90px',
-              marginLeft:'-40px' 
+        $('#logo.big').data('size','big');
+            $('#logo.big').stop().animate({
+               width:'4.286rem',
+              height:'4.286rem',
+              display: 'inline-block'
             },1000);
         }
         if($('#text').data('size') == 'small')
         {
             $('#text').data('size','big');
             $('#text').stop().animate({
-             width:'140px',
-              height:'90px',
+             width:'10.000rem',
+              height:'4.286rem',
               opacity: '1',
+              display: 'inline-block',
             },1000);
         } 
     }
 });
+  }
+})
+

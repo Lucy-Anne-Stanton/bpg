@@ -2,50 +2,53 @@
     <nav class="navbar navbar-inverse navbar-fixed-top big">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img src="images/logosml.svg" id="logo" />
-                    <img src="images/logotext.svg" id="text" />
+                    <img src="images/logosml.svg" id="logo" class="big" />
+                    <img src="images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
                 </a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active home"><a href="/">Home</a></li>
-                <li class="meet"><a href="/meet">Meet the Organisers</a></li>
-                <li class="events"><a href="/events">Events</a></li>
-                <!-- {{#unless firstName}} -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active home"><a href="/">Home</a></li>
+                    <li class="meet"><a href="/meet">Meet the Organisers</a></li>
+                    <li class="events"><a href="/events">Events</a></li>
+                    <li class="past-events"><a href="/past-events">Past Events</a></li>
+                    <!-- Unless a user has signed in, show the sign in/register buttons -->
+                    {{#unless user.displayName}}
                     <li class="signin">
-                        <a href="/signin">Log in</a>
+                        <a href="/signin">Sign In</a>
                     </li>
-                    <li class="create">
-                        <a href="/users/create">Register</a>
+                    {{/unless}}
+                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    {{#if user.displayName}}
+                    <li class="user">
+                        <span>Hi, {{user.displayName}}!</span>
                     </li>
-                <!-- {{/unless}}
-                {{#if firstName}} -->
-                <li class="user">
-                    <span>Hi, {{firstName}}!</span>
-                </li>
-                <li class="logout">
-                    <a href="/users/logout">Log out</a>
-                </li>
-                <!-- {{/if}} -->
-                
-                    
-            </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+                    <li class="logout">
+                        <a href="/users/logout">Sign Out</a>
+                    </li>
+                    {{/if}}
+
+
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
     </nav>
 </header>
+
 <div id="dc_jflickr_slider_container">
-  <ul id="dc_flickr_slider"></ul>
-  <div class="flickr_slider_nav">
-      <button id="flickr_slider_prev" href="#">previous</button>
-      <button id="flickr_slider_next" href="#">next</button></div>
+    <ul id="dc_flickr_slider"></ul>
+    <div class="flickr_slider_nav">
+        <button id="flickr_slider_prev" href="#"></button>
+        <button id="flickr_slider_next" href="#"></button></div>
 </div>
 <!--
   <div class="banner-slider slick-dotted" role="toolbar">
@@ -61,60 +64,116 @@
   </div>
       -->
 
-    <div class="container">
+<div class="container">
 
-      <div class="starter-template">
+    <div class="template">
         <h1>Bristol Photography Group</h1>
-        <p class="lead">Some blurb about BPG.<br />
-        For example on the Meetup site the description reads:<br />
-        "Have started this group as I found that there were no Meetup Groups in Bristol about Photography, it's also been started as didn't know where to go to learn about photography.<br />
-        Purpose of the group is for like-minded people to get together, learn new skills, get inspiration from others, etc.<br />
-        This group is for people who are interested in taking up photography, novice photographers who want to learn more, avid photographers and anyone in between".</p>
-      </div>
-
-    </div><!-- /.container -->
-
-    <div class="container">
-
-    <!-- Meetup -->
-    <div class="placeholder row center-block">
-        
-        
+        <p class="lead">
+            I have started this group
+            as I found that there were no Meetup Groups in Bristol about Photography, it's also been started as didn't know
+            where to go to learn about photography.<br /> Purpose of the group is for like-minded people to get together,
+            learn new skills, get inspiration from others, etc.<br /> This group is for people who are interested in taking
+            up photography, novice photographers who want to learn more, avid photographers and anyone in between.
+        </p>
+        <p>
+            Tom Page (founder)
+        </p>
+        <p class="lead">
+            These are the next three events coming up, go to the events page to see more.<br />
+        </p>
     </div>
-    <!-- end of Meetup -->
 
 </div>
-    <!-- Bootstrap core JavaScript
+<!-- /.container -->
+
+<div class="container">
+
+
+    {{#if user.displayName}}
+    <!-- Meetup -->
+    {{#withFirst events 3}}
+
+    <div class='col-xs-12 col-sm-6 col-md-4 center'>
+        <div id='groups' class='box'>
+            <h3 class='title'>
+                <a href='/event/{{id}}'>{{title}}</a>
+            </h3>
+            
+            <div class='desc'>
+                {{{description}}}
+                <!-- {{{tdesc}}} -->
+            </div>
+
+        </div>
+    </div>
+    {{/withFirst}}
+
+    <!-- end of Meetup -->
+    {{/if}} {{#unless user.displayName}}
+    <!-- Meetup -->
+    {{#withFirst events 3}}
+    <div class='col-xs-12 col-sm-6 col-md-4 center'>
+        <div id='groups' class='box'>
+            <h3 class='title'>
+                <a href='/signin'>{{title}}</a>
+            </h3>
+           
+            <div class='desc'>
+                {{{description}}}
+                <!-- {{{tdesc}}} -->
+            </div>
+</div>
+
+        </div>
+        
+    
+    {{/withFirst}}
+
+    <!-- end of Meetup -->
+    {{/unless}}
+
+</div>
+<footer>
+    <div class="left col-sm-4 col-xs-12">
+        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank" title="BPG code of conduct">
+        BPG Code of Conduct
+        </a>
+    </div>
+    <div class="center col-sm-4 col-xs-12">
+        <a class="meet" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank" title="Join us on Meetup!"></a>
+        <a class="flickr" href="https://www.flickr.com/groups/meetupbpg/" target="_blank" title="Join us on Flickr!"></a>
+        <a class="instagram" href="https://www.instagram.com/bpger/?hl=en" target="_blank" title="Follow us on Instagram!"></a>
+        <a class="twitter" href="https://twitter.com/bpger?lang=en" target="_blank" title="Follow us on Twitter!"></a>
+    </div>
+    <div class="right col-sm-4 col-xs-12">
+        BPG 2010 | Website created by Lucy Stanton 2017
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascripts/flickr.js"></script>
-    <script type="text/javascript" src="javascripts/meetup.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script type="text/javascript" src="./javascripts/bootstrap.min.js"></script>
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-  
+
 
 <domflags id="domflags-root"></domflags>
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-      
-  
 
-<!-- DC jflickrfeed: Colorbox Lightbox -->
-<link href="http://cdn.dcodes.net/2/flickr/js/colorbox/colorbox.css" rel="stylesheet" type="text/css" media="screen" /> 
-<script src="http://cdn.dcodes.net/2/flickr/js/colorbox/jquery.colorbox-min.js"></script>
+<!-- DC jflickrfeed -->
+
+<link href="http://cdn.dcodes.net/2/flickr/css/dc_jflickrfeed.css" type="text/css" rel="stylesheet" />
+<script src="http://cdn.dcodes.net/2/flickr/js/jflickrfeed.js"></script>
 
 <!-- DC jflickrfeed: Cycle Slider -->
-
 <script src="http://cdn.dcodes.net/2/flickr/js/cycle/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="./javascripts/flickr.js"></script>
+<script src="./javascripts/animate.js"></script>
 
-<script type="text/javascript" src="javascripts/slick.js"></script>
-      <script src="javascripts/animate.js"></script>
-      
-      <script type="text/javascript" src="javascripts/slickcustom.js"></script>
 
-    </body>
+</body>
+
 </html>

@@ -1,0 +1,94 @@
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top big">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="images/logosml.svg" id="logo" />
+                    <img src="images/logotext.svg" id="text" />
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="home"><a href="/">Home</a></li>
+                <li class="meet"><a href="/meet">Meet the Organisers</a></li>
+                <li class="events"><a href="/events">Events</a></li>
+                
+                    <li class="active signin">
+                        <a href="/signin">Sign in</a>
+                    </li>
+                    <li class="create">
+                        <a href="/users/create">Register</a>
+                    </li>
+                
+                
+                    
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
+<section class="container">
+    <section class="userform form-container">
+        <form action="/users/login" method="post">
+            <section class="form-group text-center">
+
+                
+                <h1>Sign In</h1>
+                <p>Please sign in to continue</p>
+            </section>
+            <section class="form-group text-center">
+                <img src="images/logosml.svg" alt="Bristol Photography Group" class="logo">
+            </section>
+            <section class="form-group">
+                <input type="email" id="txtEmail" name="email" class="form-control" placeholder="Email" tabindex="1" required>
+            </section>
+            <section class="form-group">
+                <input type="password" id="txtPassword" name="password" class="form-control" placeholder="Password" tabindex="2" required>
+            </section>
+            <section class="form-group">
+                <input type="submit" id="btnLogin" class="btn btn-primary fullwidth" value="Login">
+            </section>
+            <!-- Remember Me -->
+            <section class="form-group">
+                <label for="rememberMe">Remember me</label>
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+            </section>
+            
+            <section class="form-group">
+                <section class="row">
+                    <section class="col-xs-12">Don't have an account? <a href="/users/create">Create here</a></section>
+                </section>
+            </section>
+            <section class="form-group">
+                <section class="row">
+                    {{#if error}}
+                    <section style="color: red;">{{error}}</section>
+                    {{/if}}
+                </section>
+            </section>
+        </form>
+
+    </section>
+</section>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    
+    <domflags id="domflags-root"></domflags>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="javascripts/animate.js"></script>
+    <script src="javascripts/meetup-controller.js"></script>
+    
+    </body>
+</html>

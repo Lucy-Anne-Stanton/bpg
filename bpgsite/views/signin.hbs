@@ -1,40 +1,101 @@
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top big">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="images/logosml.svg" id="logo" class="big" />
+                    <img src="images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="home"><a href="/">Home</a></li>
+                <li class="meet"><a href="/meet">Meet the Organisers</a></li>
+                <li class="events"><a href="/events">Events</a></li>
+                <li class="events"><a href="/past-events">Past Events</a></li>
+                <li class="active signin">    
+                    <a href="/signin">Sign In</a>
+                </li>
+                    
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
 <section class="container">
     <section class="userform form-container">
         <form action="/users/login" method="post">
             <section class="form-group text-center">
+
+                
                 <h1>Sign In</h1>
                 <p>Please sign in to continue</p>
             </section>
             <section class="form-group text-center">
                 <img src="images/logosml.svg" alt="Bristol Photography Group" class="logo">
             </section>
+            
             <section class="form-group">
-                <input type="email" id="txtEmail" name="email" class="form-control" placeholder="Email" tabindex="1" required>
+                <a class="btn btn-primary fullwidth" href="/auth/meetup">
+                    Login With Meetup
+                </a>
             </section>
-            <section class="form-group">
-                <input type="password" id="txtPassword" name="password" class="form-control" placeholder="Password" tabindex="2" required>
-            </section>
-            <section class="form-group">
-                <input type="submit" id="btnLogin" class="btn btn-primary fullwidth" value="Login">
-            </section>
-            <!-- Remember Me -->
-            <section class="form-group">
-                <label for="rememberMe">Remember me</label>
-                <input type="checkbox" id="rememberMe" name="rememberMe" />
-            </section>
+            
             
             <section class="form-group">
                 <section class="row">
-                    <section class="col-xs-12">Don't have an account? <a href="/users/create">Create here</a></section>
+                    <section class="col-xs-12 form-group">
+                        BPG is a Meetup group, if you would like to join us, click the link below to join Meetup BPG.
+                    </section>
+                    <section class="col-xs-12 form-group">
+                        <a class="btn btn-secondary fullwidth" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank">
+                            Join Us
+                        </a>
+                    </section>
+                
                 </section>
             </section>
-            <section class="form-group">
-                <section class="row">
-                    {{#if error}}
-                    <section style="color: red;">{{error}}</section>
-                    {{/if}}
-                </section>
-            </section>
+            
         </form>
+
+
     </section>
 </section>
+<footer>
+    <div class="left col-sm-4 col-xs-12">
+        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank" title="BPG code of conduct">
+        BPG Code of Conduct
+        </a>
+    </div>
+    <div class="center col-sm-4 col-xs-12">
+        <a class="meet" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank" title="Join us on Meetup!"></a>
+        <a class="flickr" href="https://www.flickr.com/groups/meetupbpg/" target="_blank" title="Join us on Flickr!"></a>
+        <a class="instagram" href="https://www.instagram.com/bpger/?hl=en" target="_blank" title="Follow us on Instagram!"></a>
+        <a class="twitter" href="https://twitter.com/bpger?lang=en" target="_blank" title="Follow us on Twitter!"></a>
+    </div>
+    <div class="right col-sm-4 col-xs-12">
+        BPG 2010 | Website created by Lucy Stanton 2017
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    
+    <domflags id="domflags-root"></domflags>
+
+    <script src="javascripts/animate.js"></script>
+    <script src="javascripts/meetup-controller.js"></script>
+    
+    </body>
+</html>
