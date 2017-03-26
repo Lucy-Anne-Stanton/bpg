@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node bpgsite/bin/www"
+    "start": "node bpgsite/app.js"
   },
   "dependencies": {
     "angular": "^1.6.1",
