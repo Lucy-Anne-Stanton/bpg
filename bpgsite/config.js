@@ -1,11 +1,11 @@
-var configValues = require('./config');
+var configValues = require('./info/config');
 var mongoose = require('mongoose');
 
-module.exports = {
-    getDbConnectionString: function() {
-        return 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@' + configValues.uri + ':' + configValues.port + '/' + configValues.dbname;
-    }
-}
+var config =  {};
+config.mongoUri = 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@' + configValues.uri + ':' + configValues.port + '/' + configValues.dbname; //'mongodb://localhost:27017/bpgdb'; //referring to bpg db
+config.cookieAge=30*24*3600*1000;
+module.exports = config;
+
 
 dbURI = 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@' + configValues.uri + ':' + configValues.port + '/' + configValues.dbname;
 var db = mongoose.connection;

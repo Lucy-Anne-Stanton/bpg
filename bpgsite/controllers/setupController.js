@@ -6,8 +6,9 @@ var request = require('request');
 var fs = require('fs-extra');
 var http = require('https');
 
+//var db = 'mongodb://BPG_admin:Uwe31608Password@ds031608.mlab.com:31608/bpg';
 var site = "https://api.meetup.com/Bristol-Photography-Group/events?photo-host=public&sig_id=215630158&sig=23f6b52eb734d90e8bbc032ca7ed2347de943896&callback=?";
-
+//var site = 'http://127.0.0.1:3000/json/test.json';
 request.get({
     url: site,
     json: true,
@@ -23,7 +24,7 @@ request.get({
         
        fs.writeFile('./public/json/upcomingEvents.json', file, 'utf8', function (err) {
             if (err) return console.log(err);
-            
+            //console.log('j > test.json')
         })
 
         
@@ -47,24 +48,33 @@ request.get({
         
        fs.writeFile('./public/json/pastEvents.json', pastFile, 'utf8', function (err) {
             if (err) return console.log(err);
+            //console.log('j > test.json')
         })
 
     } 
 });
 
-
+//var Events = require('../models/events');
 var Events = require('../models/events');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
         fs.readFile('./public/json/upcomingEvents.json', 'utf8', function (err, data) {
+        //fs.readFile('./public/json/test.json', 'utf8', function (err, data) {
             if (err) throw err;
-            var json = JSON.parse(data);
+            var json = JSON.parse(data),
+                
+                options = { upsert: true, new: true, multi: true };
             
+        
             res.render('index', {
                 title: 'Home',
                 user: req.user
             });
+            
+            
+
+            
             
         })
     });
