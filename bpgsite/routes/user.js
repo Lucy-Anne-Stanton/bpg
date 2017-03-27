@@ -3,7 +3,7 @@ var router = express.Router();
 var request = require('request');
 var fs = require('fs-extra');
 var http = require('https');
-var databaseUrl = 'mongodb://heroku_8vg6ng9s:1oqbq7p3gmruleg8p07cpi94so@ds143340.mlab.com:43340/heroku_8vg6ng9s';
+var databaseUrl = 'mongodb://BPG_admin:Uwe31608Password@ds031608.mlab.com:31608/bpg';
 var db = require("mongojs")(databaseUrl);
 var userDb = db.collection('users');
 

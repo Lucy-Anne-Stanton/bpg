@@ -21,7 +21,7 @@ var signin = require('./routes/signin');
 var user = require('./routes/user');
 var editUser = require('./routes/editUser');
 var update = require('./routes/editUser');
-var databaseUrl = 'mongodb://heroku_8vg6ng9s:1oqbq7p3gmruleg8p07cpi94so@ds143340.mlab.com:43340/heroku_8vg6ng9s';
+var databaseUrl = 'mongodb://BPG_admin:Uwe31608Password@ds031608.mlab.com:31608/bpg';
 var db = require("mongojs")(databaseUrl);
 var userDb = db.collection('users');
 
