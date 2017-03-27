@@ -1,7 +1,7 @@
 {
-    "uname": "BPG_admin",
-    "pwd": "Uwe31608Password",
-    "uri": "ds031608.mlab.com",
-    "port": "31608",
-    "dbname": "bpg"
+    "uname": "heroku_8vg6ng9s",
+    "pwd": "1oqbq7p3gmruleg8p07cpi94so",
+    "uri": "ds143340.mlab.com",
+    "port": "43340",
+    "dbname": "heroku_8vg6ng9s"
 }
