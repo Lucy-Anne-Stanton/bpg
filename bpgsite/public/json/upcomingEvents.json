@@ -5,10 +5,10 @@
     "name": "April Photography Social",
     "status": "upcoming",
     "time": 1491048000000,
-    "updated": 1490003659000,
+    "updated": 1490655054000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 28,
+    "yes_rsvp_count": 36,
     "venue": {
       "id": 20026932,
       "name": "The Bank Tavern",
@@ -31,7 +31,7 @@
       "who": "BPG-ers"
     },
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/232899793/",
-    "description": "<p><img src=\"http://photos1.meetupstatic.com/photos/event/7/4/a/e/600_458909870.jpeg\" /></p> <p><b><br/></b></p> <p><b>April Photography Social</b></p> <p>The socials are generally held on the <b>first Saturday of each month</b>, starting at <b>1pm</b></p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b>Location Details</b></a></p> ",
+    "description": "<p><img src=\"https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/7/4/a/e/600_458909870.jpeg\" /></p> <p><b><b>April Photography Social</b></b></p> <p>There will also be a FREE buffet as long as I get 20 people or more</p> <p>The socials are generally held on the first Saturday of each month, starting at 1pm</p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"https://www.google.co.uk/maps/place/The+Bank+Tavern/@51.4564789,-2.5938352,16z/data=%214m2%213m1%211s0x0:0x75c03f3575b81fcb\">Location Details </a>(Address: The Bank Tavern. 8 John Street. Bristol, BS1 2HR)</p> <p><a href=\"http://www.tripadvisor.co.uk/Attraction_Review-g186220-d5912751-Reviews-The_Bank_Tavern-Bristol_England.html\">Bank Tavern TripAdvisor review</a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> ",
     "how_to_find_us": "Meet inside - area will be set aside for us",
     "visibility": "public_limited"
   },
@@ -45,7 +45,7 @@
     "updated": 1490385816000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 6,
+    "yes_rsvp_count": 9,
     "venue": {
       "id": 24587137,
       "name": "Coffee#1",
@@ -73,22 +73,22 @@
   },
   {
     "created": 1488985123000,
-    "duration": 6300000,
+    "duration": 5400000,
     "id": "238265915",
     "name": "April Night Walk",
     "status": "upcoming",
     "time": 1492628400000,
-    "updated": 1488985165000,
+    "updated": 1490694482000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 2,
+    "yes_rsvp_count": 3,
     "venue": {
-      "id": 13723292,
-      "name": "To be confirmed",
-      "lat": 51.45451354980469,
-      "lon": -2.5879099369049072,
+      "id": 24503535,
+      "name": "The Kings Head",
+      "lat": 51.451904296875,
+      "lon": -2.5871920585632324,
       "repinned": false,
-      "address_1": "TBC",
+      "address_1": "60 Victoria Street, Bristol BS1 6DE",
       "city": "Bristol",
       "country": "gb",
       "localized_country_name": "United Kingdom"
@@ -104,9 +104,8 @@
       "who": "BPG-ers"
     },
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/238265915/",
-    "manual_attendance_count": 0,
-    "description": "<p>TBC</p> ",
-    "how_to_find_us": "TBC",
+    "description": "<p><img src=\"https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/8/9/e/8/600_459515304.jpeg\" /></p> <p>Image source: Flickr user: <a href=\"https://www.flickr.com/photos/brizzlebornandbred/5699876518\">brizzlebornandbred</a> (Victoria Street, Bristol 1890)<b></p> <p></b></p> <p><b>April Night Walk around Victoria Street area</b></p> <p>April's optional theme/colour: Shadows/Pink</p> <p>Map of meeting location: <a href=\"https://www.google.co.uk/maps/place/Ye+Shakespeare/@51.4515633,-2.5873196,19.96z/data=!4m13!1m7!3m6!1s0x48718e7e5a110ccd:0xdee2fb67d19e8f1c!2sTemple+St,+Bristol+BS3+3NF!3b1!8m2!3d51.4337807!4d-2.6074747!3m4!1s0x0:0x21ec54028d62303c!8m2!3d51.45161!4d-2.587119\">Ye Shakespeare - Location Map</a><br/>(Address: 78 Victoria St, Bristol BS1 6DR) <br/>(Google Maps location not 100% accurate)</p> <p>Re: Uploading photos - Please can you upload a maximum of 4 photos ONLY, if you have more please put them on Flickr (<a href=\"https://www.flickr.com/groups/meetupbpg\"><a href=\"https://www.flickr.com/groups/meetupbpg\" class=\"linkified\">https://www.flickr.com/groups/meetupbpg</a></a>), there is limited space on Meetup</p> <p><b>Suggested Equipment: </b><br/>Tripod (optional) <br/>Suitable Clothing if chilly! <br/>Torch/Bike Lights (optional) <br/>Anything related to the theme (optional)</p> ",
+    "how_to_find_us": "Meet inside",
     "visibility": "public_limited"
   },
   {
@@ -119,7 +118,7 @@
     "updated": 1489410584000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 31,
+    "yes_rsvp_count": 32,
     "venue": {
       "id": 24943892,
       "name": "Prior's Wood",
@@ -248,7 +247,6 @@
       "who": "BPG-ers"
     },
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/233114142/",
-    "manual_attendance_count": 0,
     "description": "<p><b>Photography Social</b></p> <p>The socials are generally held on the <b>first Saturday of each month</b>, starting at <b>1pm</b></p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b>Location Details</b></a></p> ",
     "visibility": "public_limited"
   },
