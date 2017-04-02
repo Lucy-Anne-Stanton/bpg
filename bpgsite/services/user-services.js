@@ -1,6 +1,12 @@
+/**
+ * This page was created when developing the secure sign in/registration
+ * This service determines whether or not the user exists and allows them to sign in
+**/
+
 var User = require('../models/user').User;
 var bcrypt = require('bcrypt-nodejs');
 
+// creates a new user via Mongoose model user
 exports.addUser = function (user, next) {
     bcrypt.hash(user.password, null, null, function (err, hash) {
         if (err) {
@@ -15,7 +21,8 @@ exports.addUser = function (user, next) {
             providerIdentifierField: 'id',
             providerData: providerData
         });
-
+        
+        //saves the new user
         newUser.save(function (err) {
             if (err) {
                 return next(err);
@@ -28,27 +35,9 @@ exports.addUser = function (user, next) {
     });
 
 }
-
+// Finds a user with a matching email address
 exports.findUser = function (email, next) {
     User.findOne({ email: email }, function (err, user) {
         next(err, user);
     });
 };
-
-/* http://www.ibm.com/developerworks/library/wa-mean5/index.html
-
-    displayName: profile.displayName,
-    email: '',
-    username: profile.id,
-    provider: profile.provider,
-    providerIdentifierField: 'id',
-    providerData: providerData 
-    
-    
-    
-    
-    
-    firstName : user.firstname,
-    lastName : user.lastname,
-    email : user.email.toLowerCase(),
-    password : hash*/

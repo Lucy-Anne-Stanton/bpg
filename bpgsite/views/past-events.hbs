@@ -1,124 +1,123 @@
-<header>
-    <nav class="navbar navbar-inverse navbar-fixed-top big">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
+<!-- Beginning of header -->
+    <header>
+        <!-- Beginning of navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top big">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img src="images/logosml.svg" id="logo" class="big" />
-                    <img src="images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
-                </a>
+                    <!-- logos -->
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/logosml.svg" id="logo" class="big" alt="Bristol Photography Group" />
+                        <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
+                    </a>
+                    <!-- End of logos -->
+                </div>
+                <!-- nav-collapse -->
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="home"><a href="/">Home</a></li>
+                        <li class="meet"><a href="/meet">Meet the Organisers</a></li>
+                        <li class="events"><a href="/events">Events</a></li>
+                        <li class="active past-events"><a href="/past-events">Past Events</a></li>
+                        <!-- Unless a user has signed in, show the sign in/register buttons -->
+                        {{#unless user.displayName}}
+                        <li class="signin">
+                            <a href="/signin">Sign In</a>
+                        </li>
+                        {{/unless}}
+                        <!-- End of unless -->
+                        <!-- If a user is signed in, display their name and allow them to log out -->
+                        {{#if user.displayName}}
+                        <li class="user">
+                            <span>Hi, {{user.displayName}}!</span>
+                        </li>
+                        <li class="logout">
+                            <a href="/users/logout">Sign Out</a>
+                        </li>
+                        {{/if}}
+                        <!-- End of if -->
+                    </ul>
+                </div>
+                <!-- End of nav-collapse -->
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="home"><a href="/">Home</a></li>
-                    <li class="meet"><a href="/meet">Meet the Organisers</a></li>
-                    <li class="events"><a href="/events">Events</a></li>
-                    <li class="active past-events"><a href="/past-events">Past Events</a></li>
-                    <!-- Unless a user has signed in, show the sign in/register buttons -->
-                    {{#unless user.displayName}}
-                    <li class="signin">
-                        <a href="/signin">Sign In</a>
-                    </li>
-                    {{/unless}}
-                    <!-- if a user is signed in, display their name and allow them to log out -->
-                    {{#if user.displayName}}
-                    <li class="user">
-                        <span>Hi, {{user.displayName}}!</span>
-                    </li>
-                    <li class="logout">
-                        <a href="/users/logout">Sign Out</a>
-                    </li>
-                    {{/if}}
-                </ul>
+        </nav>
+        <!-- End of nav -->
+    </header>
+    <!-- End of header -->
+
+    <!-- Beginning of event-details -->
+    <div class="event-details">
+        <!-- Beginning of banner -->
+        <div class="banner">
+            <div class="banner-title">
+                <h1 class="title">{{title}}</h1>
             </div>
-            <!--/.nav-collapse -->
         </div>
-    </nav>
-</header>
+        <!-- End of banner -->
+        <!-- Beginning of container -->
+        <div class="container">
 
 
-<div class="event-details">
+            <div class="template">
+                <h2>Below are the past fifteen events:</h2>
+            </div>
 
-    <div class="banner">
-        <div class="banner-title">
-            <h1 class="title">{{title}}</h1>
         </div>
-    </div>
-    <!-- /.banner -->
+        <!-- End of container -->
+        <!-- Beginning of container -->
+        <div class="container">
+            <!-- Display each of the events and use their array key -->
 
-    <div class="container">
-
-
-        <div class="template">
-            <h2>Below are the past fifteen events:</h2>
-        </div>
-
-    </div>
-
-    <div class="container">
-        <!-- Meetup -->
-        {{#if user.displayName}}
-        {{#each pastEvents as |val key|}}
-        <div class='col-xs-12 col-sm-6 col-md-4 center'>
-            <div id='groups' class='box'>
-                <h3 class='title'>
-                    <a href='/past-event/{{key}}'>{{title}}</a>
-                </h3>
-                <div class='desc'>
-                    {{{description}}}
+            {{#each pastEvents as |val key|}}
+            <div class='col-xs-12 col-sm-6 col-md-4 center'>
+                <div id='groups' class='box'>
+                    <h3 class='title'>
+                        <!-- Allow the user to view the information, as they are signed in -->
+                        <a href='/past-event/{{key}}' title='{{title}}'>{{title}}</a>
+                    </h3>
+                    <div class='desc'>
+                        {{{description}}}
+                    </div>
                 </div>
             </div>
-        </div>
+            {{/each}}
+            <!-- End of each -->
 
-        {{/each}}
-        {{/if}}
-        {{#unless user.displayName}}
-        {{#each pastEvents as |val key|}}
-        <div class='col-xs-12 col-sm-6 col-md-4 center'>
-            <div id='groups' class='box'>
-                <h3 class='title'>
-                    <a href='/past-event/{{key}}'>{{title}}</a>
-                </h3>
-                <div class='desc'>
-                    {{{description}}}
-                </div>
-            </div>
         </div>
-
-        {{/each}}
-        {{/unless}}
-        <!-- end of Meetup -->
+        <!-- End of container -->
 
     </div>
-
-</div>
-<footer>
-    <div class="left col-sm-4 col-xs-12">
-        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank" title="BPG code of conduct">
+    <!-- End of event-details -->
+    <!-- Beginning of footer -->
+    <footer>
+        <div class="left col-sm-4 col-xs-12">
+            <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank"
+                title="BPG code of conduct">
         BPG Code of Conduct
         </a>
-    </div>
-    <div class="center col-sm-4 col-xs-12">
-        <a class="meet" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank" title="Join us on Meetup!"></a>
-        <a class="flickr" href="https://www.flickr.com/groups/meetupbpg/" target="_blank" title="Join us on Flickr!"></a>
-        <a class="instagram" href="https://www.instagram.com/bpger/?hl=en" target="_blank" title="Follow us on Instagram!"></a>
-        <a class="twitter" href="https://twitter.com/bpger?lang=en" target="_blank" title="Follow us on Twitter!"></a>
-    </div>
-    <div class="right col-sm-4 col-xs-12">
-        BPG 2010 | Website created by Lucy Stanton 2017
-    </div>
-</footer>
-<!-- Bootstrap core JavaScript
+        </div>
+        <div class="center col-sm-4 col-xs-12">
+            <a class="meet" href="https://www.meetup.com/Bristol-Photography-Group/" target="_blank" title="Join us on Meetup!"></a>
+            <a class="flickr" href="https://www.flickr.com/groups/meetupbpg/" target="_blank" title="Join us on Flickr!"></a>
+            <a class="instagram" href="https://www.instagram.com/bpger/?hl=en" target="_blank" title="Follow us on Instagram!"></a>
+            <a class="twitter" href="https://twitter.com/bpger?lang=en" target="_blank" title="Follow us on Twitter!"></a>
+        </div>
+        <div class="right col-sm-4 col-xs-12">
+            BPG 2010 | Website created by Lucy Stanton 2017
+        </div>
+    </footer>
+    <!-- End of footer -->
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write(' src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write(' src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script type="text/javascript" src="./javascripts/bootstrap.min.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 

@@ -1,3 +1,8 @@
+/** 
+* Find the values in the config file
+* Add those values to the url ("mongodb://...") and export it.
+* Ensure that the server will reconnect after a timeout (not been in use for an extended period)
+**/
 var configValues = require('./config');
 var mongoose = require('mongoose');
 
@@ -6,6 +11,11 @@ module.exports = {
         return 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@' + configValues.uri + ':' + configValues.port + '/' + configValues.dbname;
     }
 }
+
+/** 
+* How to create a resilient mongoose connection: 
+* https://www.ibm.com/blogs/bluemix/2015/10/resilient-connections-between-node-and-mongodb-in-bluemix/ 
+**/
 
 dbURI = 'mongodb://' + configValues.uname + ':' + configValues.pwd + '@' + configValues.uri + ':' + configValues.port + '/' + configValues.dbname;
 var db = mongoose.connection;
@@ -27,6 +37,7 @@ var db = mongoose.connection;
   db.on('reconnected', function () {
     console.log('MongoDB reconnected!');
   });
+  //If the database is disconnected, create a new connection
   db.on('disconnected', function() {
     console.log('MongoDB disconnected!');
     mongoose.createConnection(dbURI, {server: {auto_reconnect:true,

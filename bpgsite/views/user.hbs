@@ -1,4 +1,6 @@
+<!-- Beginning of header -->
 <header>
+    <!-- Beginning of navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top big">
         <div class="container">
             <div class="navbar-header">
@@ -9,11 +11,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- logos -->
                 <a class="navbar-brand" href="/">
-                    <img src="/images/logosml.svg" id="logo" class="big" />
+                    <img src="/images/logosml.svg" id="logo" class="big" alt="Bristol Photography Group" />
                     <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
                 </a>
+                <!-- End of logos -->
             </div>
+            <!-- nav-collapse -->
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="home"><a href="/">Home</a></li>
@@ -26,7 +31,8 @@
                         <a href="/signin">Sign In</a>
                     </li>
                     {{/unless}}
-                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    <!-- End of unless -->
+                    <!-- If a user is signed in, display their name and allow them to log out -->
                     {{#if user.displayName}}
                     <li class="user">
                         <span>Hi, {{user.displayName}}!</span>
@@ -35,96 +41,60 @@
                         <a href="/users/logout">Sign Out</a>
                     </li>
                     {{/if}}
-
-
+                    <!-- End of if -->
                 </ul>
             </div>
-            <!--/.nav-collapse -->
+            <!-- End of nav-collapse -->
         </div>
     </nav>
+    <!-- End of nav -->
 </header>
+<!-- End of header -->
 
 
-
-
-<div class='event-details'>
-
-    <div class='banner'>
-        <div class='banner-title'>
-            <h1 class='title'>{{firstName}}</h1>
-        </div>
+<!-- Beginning of banner -->
+<div class='banner'>
+    <div class='banner-title'>
+        <h1 class='title'>{{firstName}}</h1>
     </div>
-    <!-- /.banner -->
-
-
-
-
-    <div class='container'>
-
-        <div class='boxes'>
-            <div class='col-md-4'>
-                <div class='organiser img-box'>
-                    <div class="btns">
-                        {{#contains edit 'true'}}
-
-                        <a class='btn edit-btn' href='/edit/{{id}}'>Edit</a> {{/contains}}
-                        <a class="btn back-btn" href="/meet">Back</a>
-                    </div>
-                    <div class='image'>
-                        <img src='{{userPhoto}}' />
-                    </div>
-
-                </div>
-            </div>
-            <div class='col-md-8'>
-                <div class='text'>{{userInfo}}</div>
-            </div>
-        </div>
-
-        {{#if user.displayName}}
-        <!-- Meetup -->
-        {{#each userRSVP}}
-
-        <div class='col-md-4'>
-            <div id='groups' class='box'>
-
-
-                <div class='desc'>
-
-                    <!-- {{{tdesc}}} -->
-                </div>
-
-            </div>
-        </div>
-        {{/each}}
-
-        <!-- end of Meetup -->
-        {{/if}} {{#unless user.displayName}}
-        <!-- Meetup -->
-        {{#each userRSVP}}
-        <div class='col-md-4'>
-            <div id='groups' class='box'>
-                <h3 class='title'>
-                    {{next_event}}
-                </h3>
-
-                <div class='desc'>
-
-                    <!-- {{{tdesc}}} -->
-                </div>
-            </div>
-
-        </div>
-
-
-        {{/each}}
-
-        <!-- end of Meetup -->
-        {{/unless}}
-
-    </div>
-    <!-- /.container -->
 </div>
+<!-- End of banner -->
+
+<!-- Beginning of container -->
+<div class='container'>
+    {{#if user.displayName}}
+    <!-- Beginning of boxes -->
+    <div class='boxes'>
+
+        <div class='col-md-4'>
+            <div class='organiser img-box'>
+                <div class="btns">
+                    <!-- If user is signed in -->
+
+                    <!-- If edit contains true, allow them to edit their details -->
+                    {{#contains edit 'true'}}
+
+                    <a class='btn edit-btn' href='/edit/{{id}}'>Edit</a> {{/contains}}
+                    <!-- End of contains -->
+                    <a class="btn back-btn" href="/meet">Back</a>
+                </div>
+                <div class='image'>
+                    <img src='{{userPhoto}}' />
+                </div>
+
+            </div>
+        </div>
+        <div class='col-md-8'>
+            <div class='text'>{{userInfo}}</div>
+        </div>
+    </div>
+    <!-- End of boxes -->
+    {{/if}}
+    <!-- End if -->
+    <!-- End of container -->
+</div>
+
+<!-- Beginning of footer -->
 <footer>
     <div class="left col-sm-4 col-xs-12">
         <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank"
@@ -142,6 +112,7 @@
         BPG 2010 | Website created by Lucy Stanton 2017
     </div>
 </footer>
+<!-- End of footer -->
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -157,7 +128,6 @@
 <domflags id="domflags-root"></domflags>
 
 <script src="/javascripts/animate.js"></script>
-
 
 </body>
 

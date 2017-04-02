@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['rmMeetup'])
+/* var myApp = angular.module('myApp', ['rmMeetup'])
     .config(
         [
             "rmConsumerProvider",
@@ -28,4 +28,4 @@ function meetupController($scope, rmMeetupMembersService){
             $scope.member = member;
         });
     }
-};
+}; */

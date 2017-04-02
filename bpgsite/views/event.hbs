@@ -1,5 +1,7 @@
+<!-- Beginning of header -->
 <header>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHARWllkT3S22tgiTiM3P9RqSq4xrBiAo&sensor=false"></script>
+    <!-- Beginning of navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top big">
         <div class="container">
             <div class="navbar-header">
@@ -10,24 +12,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- logos -->
                 <a class="navbar-brand" href="/">
-                    <img src="/images/logosml.svg" id="logo" class="big" />
+                    <img src="/images/logosml.svg" id="logo" class="big" alt="Bristol Photography Group" />
                     <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
                 </a>
+                <!-- End of logos -->
             </div>
+            <!-- Beginning of nav-collapse -->
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="home"><a href="/">Home</a></li>
                     <li class="meet"><a href="/meet">Meet the Organisers</a></li>
-                    <li class="{{#contains upcoming "true"}}active{{/contains}} events"><a href="/events">Events</a></li>
-                    <li class="{{#contains past "true"}}active{{/contains}} past-events"><a href="/past-events">Past Events</a></li>
+                    <!-- If events is set to true, give it an active class -->
+                    <li class="{{#contains upcoming "true"}} active {{/contains}}events"><a href="/events">Events</a></li>
+                    <!-- If past-events is set to true, give it an active class -->
+                    <li class="{{#contains past "true"}} active {{/contains}}past-events"><a href="/past-events">Past Events</a></li>
                     <!-- Unless a user has signed in, show the sign in/register buttons -->
                     {{#unless user.displayName}}
                     <li class="signin">
                         <a href="/signin">Sign In</a>
                     </li>
                     {{/unless}}
-                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    <!-- End of unless -->
+                    <!-- If a user is signed in, display their name and allow them to log out -->
                     {{#if user.displayName}}
                     <li class="user">
                         <span>Hi, {{user.displayName}}!</span>
@@ -36,45 +44,54 @@
                         <a href="/users/logout">Sign Out</a>
                     </li>
                     {{/if}}
+                    <!-- End of if -->
                 </ul>
             </div>
-            <!--/.nav-collapse -->
+            <!-- End of nav-collapse -->
         </div>
     </nav>
+    <!-- End of nav -->
 </header>
+<!-- End of header -->
 
-
+<!-- Beginning of event details -->
 <div class="event-details">
-
+    <!-- Beginning of banner -->
     <div class="banner">
         <div class="banner-title">
             <h1 class="title">{{title}}</h1>
         </div>
     </div>
-    <!-- /.banner -->
-
+    <!-- End of banner -->
+    <!-- Beginning of container -->
     <div class="container content">
-
-    {{#unless user.displayName}}
+        <!-- Unless the user is signed in -->
+        {{#unless user.displayName}}
         <div class="col-md-5">
+            <!-- If events is set to upcoming -->
             {{#contains upcoming "true"}}
-            <a class="btn back-btn" href="/events">Back</a>
-            {{/contains}}
+            <a class="btn back-btn" href="/events">Back</a> {{/contains}}
+            <!-- End of contains -->
+            <!-- If events is set to past -->
             {{#contains past "true"}}
-            <a class="btn back-btn" href="/past-events">Back</a><h2 class="event-header">{{time}}</h2>
+            <a class="btn back-btn" href="/past-events">Back</a>
+            <h2 class="event-header">{{time}}</h2>
             {{/contains}}
+            <!-- End of contains -->
             <div class="desc">{{{desc}}}</div>
-            
+
         </div>
         <div class="col-md-7">
-           {{#contains past "true"}}
+            <!-- If events is set to past -->
+            {{#contains past "true"}}
             <h2 class="event-header">{{loc}}</h2>
             {{/contains}}
-            <div id="floating-panel">  
+            <!-- End of contains -->
+            <!-- Beginning of map area -->
+            <div id="floating-panel">
                 <div class="address-form">
                     Enter your address: <input id="address" class="form-control" type="text" />
-                    <button id="submit" class="btn btn-primary inline" type="submit">Submit</button><br/>
-                    Mode of Travel:
+                    <button id="submit" class="btn btn-primary inline" type="submit">Submit</button><br/> Mode of Travel:
                     <select class="form-control" id="mode">
                         <option value="DRIVING">Driving</option>
                         <option value="WALKING">Walking</option>
@@ -85,84 +102,35 @@
             </div>
             <div id="map"></div>
             <div id="panel"></div>
-            
-            <script type="text/javascript">
-                var directionsService = new google.maps.DirectionsService();
-                var directionsDisplay = new google.maps.DirectionsRenderer();
-                var latLng = new google.maps.LatLng({{lat}}, {{lon}});
-                
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom:7,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-                
-                directionsDisplay.setMap(map);
-                calculateAndDisplayRoute(directionsService, directionsDisplay);
-                document.getElementById('mode').addEventListener('change', function() {
-                    calculateAndDisplayRoute(directionsService, directionsDisplay);
-                });
-                directionsDisplay.setPanel(document.getElementById('panel'));
-                
-                var request = {
-                    origin: latLng,
-                    destination: latLng,
-                    travelMode: google.maps.DirectionsTravelMode.DRIVING
-                };
-                
-                directionsService.route(request, function(response, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        directionsDisplay.setDirections(response);
-                    }
-                });
-                
-                $('#submit').click(function() {
-                    var selectedMode = document.getElementById('mode').value;
-                    var address = $('#address').val();
-                    directionsService.route({
-                        origin: address,
-                        destination: latLng,
-                        travelMode: google.maps.TravelMode[selectedMode]
-                    }, function(response, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            directionsDisplay.setDirections(response);
-                        }
-                    });
-                });
-                
-                function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                    var selectedMode = document.getElementById('mode').value;
-                    var address = $('#address').val();
-                    directionsService.route({
-                        origin: address,
-                        destination: latLng,
-                        travelMode: google.maps.TravelMode[selectedMode]
-                    }, function(response, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            directionsDisplay.setDirections(response);
-                        }
-                    });
-                }
-            </script>
+            <!-- End of map area -->
+
+
         </div>
         {{/unless}}
+        <!-- End unless -->
+        <!-- If the user is signed in -->
         {{#if user.displayName}}
         <div class="col-md-5">
+            <!-- If events is set to upcoming -->
             {{#contains upcoming "true"}}
-            <a class="btn back-btn" href="/events">Back</a>
-            {{/contains}}
+            <a class="btn back-btn" href="/events">Back</a> {{/contains}}
+            <!-- End of contains -->
+            <!-- If events is set to past -->
             {{#contains past "true"}}
-            <a class="btn  back-btn" href="/past-events">Back</a>
-            {{/contains}}<h2 class="event-header">{{time}}</h2>
+            <a class="btn  back-btn" href="/past-events">Back</a> {{/contains}}
+            <!-- End of contains -->
+            <h2 class="event-header">{{time}}</h2>
             <div class="desc">{{{desc}}}</div>
         </div>
         <div class="col-md-7">
-           <h2 class="event-header">{{loc}}</h2>
-           <div id="floating-panel">
-               <div class="address-form">
-                   Enter your address: <input id="address" class="form-control" type="text" />
-                   <button id="submit" class="btn btn-primary inline" type="submit">Submit</button><br/>
-                   <b>Mode of Travel: </b>
-                   <select class="form-control" id="mode">
+            <h2 class="event-header">{{loc}}</h2>
+            <!-- Beginning of map area -->
+            <div id="floating-panel">
+                <div class="address-form">
+                    Enter your address: <input id="address" class="form-control" type="text" />
+                    <button id="submit" class="btn btn-primary inline" type="submit">Submit</button><br/>
+                    <b>Mode of Travel: </b>
+                    <select class="form-control" id="mode">
                        <option value="DRIVING">Driving</option>
                        <option value="WALKING">Walking</option>
                        <option value="BICYCLING">Cycling</option>
@@ -172,8 +140,24 @@
             </div>
             <div id="map"></div>
             <div id="panel"></div>
-            
-            <script type="text/javascript">
+            <!-- End of map area -->
+
+            <!-- If events is set to upcoming -->
+            {{#contains upcoming "true"}}
+            <a class="btn btn-primary" href="{{link}}" target="_blank">RSVP</a> {{/contains}}
+            <!-- End of contains -->
+            <!-- If events is set to past -->
+            {{#contains past "true"}}
+            <a class="btn btn-primary" href="https://www.flickr.com/groups/meetupbpg/" target="_blank">Upload to Flickr</a>            {{/contains}}
+            <!-- End of contains -->
+        </div>
+        {{/if}}
+        <!-- End if -->
+    </div>
+    <!-- End of container -->
+</div>
+<!-- script for Google maps -->
+<script type="text/javascript">
                 var directionsService = new google.maps.DirectionsService();
                 var directionsDisplay = new google.maps.DirectionsRenderer();
                 var latLng = new google.maps.LatLng({{lat}}, {{lon}});
@@ -229,21 +213,9 @@
                         }
                     });
                 }
-            </script>
-            
-            {{#contains upcoming "true"}}
-            <a class="btn btn-primary" href="{{link}}" target="_blank">RSVP</a>
-            {{/contains}}
-            {{#contains past "true"}}
-            <a class="btn btn-primary" href="https://www.flickr.com/groups/meetupbpg/" target="_blank">Upload to Flickr</a>
-            {{/contains}}
-        </div>
-        {{/if}}
-    </div>
-    <!-- /.container -->
-</div>
-
-
+</script>
+<!-- End of Google Maps -->
+<!-- Beginning of footer -->
 <footer>
     <div class="left col-sm-4 col-xs-12">
         <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank" title="BPG code of conduct">
@@ -260,6 +232,7 @@
         BPG 2010 | Website created by Lucy Stanton 2017
     </div>
 </footer>
+<!-- End of footer -->
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

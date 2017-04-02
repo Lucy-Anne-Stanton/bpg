@@ -1,18 +1,19 @@
+/**
+ * code used to animate and change the height of the navbar and logos
+**/
+
 $(document).ready(function(){
     if (window.innerWidth < 700) {
     $('#logo').addClass('noAnimate');
   
   $('.navbar.navbar-inverse.navbar-fixed-top').addClass('shrink');
   $('.navbar.navbar-inverse.navbar-fixed-top').removeClass('big');
-  }
-  else{
-      // fade in code (GSAP)
+  } else {
 
-
-
-//Scroll code (jQuery - this should only be used to alternate from scroll up to down, but this is how the animation is working so far)
+// Scroll code
 
 $(window).scroll(function() {
+    // If it scrolls more than 50 add the scrink class and remove the big class
   if ($(document).scrollTop() > 50) {
       
     $('nav').addClass('shrink');
@@ -24,6 +25,7 @@ $(window).scroll(function() {
     $('#text').addClass('shrink');
     $('#text').removeClass('big');
    } else {
+    // Else, add the big class and remove the shrink class
     $('nav').removeClass('shrink');
     $('nav').addClass('big');
       
@@ -33,7 +35,7 @@ $(window).scroll(function() {
     $('#text').removeClass('shrink');
     $('#text').addClass('big');
   }
-
+  // If the inner width of the device is less than 700, remove the classes
   if (window.innerWidth < 700) {
       
     $('#logo').removeClass('shrink');
@@ -41,6 +43,8 @@ $(window).scroll(function() {
   }
 
 });
+
+// The below code changes the heights/widths of the logo and text
 
 $(function(){
     $('#logo').data('size','big');

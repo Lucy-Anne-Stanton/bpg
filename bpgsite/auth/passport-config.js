@@ -1,4 +1,6 @@
-//function to configure passport
+/**
+ *  This was created to enable users to create accounts and sign in securely, which was replaced with passport-meetup signin 
+**/
 
 module.exports = function () {
     var passport = require('passport');
@@ -6,8 +8,8 @@ module.exports = function () {
     var passportLocal = require('passport-local');
     var userService = require('../services/user-services');
 
-    //pass  new instance of the passport local strategy which takes a function to verify the password
-
+    //pass new instance of the passport local strategy which takes a function to verify the password
+/*
     passport.use(new passportLocal.Strategy({usernameField: 'email'},function (email, password, next) {
         userService.findUser(email, function (err, user) {
             if (err) {
@@ -38,4 +40,5 @@ module.exports = function () {
             next(err, user);
         });
     });
+    */
 };

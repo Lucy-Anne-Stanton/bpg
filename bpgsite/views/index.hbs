@@ -1,4 +1,6 @@
+<!-- Beginning of header -->
 <header>
+    <!-- Beginning of navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top big">
         <div class="container">
             <div class="navbar-header">
@@ -9,11 +11,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- logos -->
                 <a class="navbar-brand" href="/">
-                    <img src="images/logosml.svg" id="logo" class="big" />
-                    <img src="images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
+                    <img src="/images/logosml.svg" id="logo" class="big" alt="Bristol Photography Group" />
+                    <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
                 </a>
+                <!-- End of logos -->
             </div>
+            <!-- nav-collapse -->
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active home"><a href="/">Home</a></li>
@@ -26,7 +31,8 @@
                         <a href="/signin">Sign In</a>
                     </li>
                     {{/unless}}
-                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    <!-- End of unless -->
+                    <!-- If a user is signed in, display their name and allow them to log out -->
                     {{#if user.displayName}}
                     <li class="user">
                         <span>Hi, {{user.displayName}}!</span>
@@ -35,45 +41,36 @@
                         <a href="/users/logout">Sign Out</a>
                     </li>
                     {{/if}}
-
-
+                    <!-- End of if -->
                 </ul>
             </div>
-            <!--/.nav-collapse -->
+            <!-- End of nav-collapse -->
         </div>
     </nav>
+    <!-- End of nav -->
 </header>
+<!-- End of header -->
 
+<!-- Flickr slider -->
 <div id="dc_jflickr_slider_container">
     <ul id="dc_flickr_slider"></ul>
     <div class="flickr_slider_nav">
         <button id="flickr_slider_prev" href="#"></button>
         <button id="flickr_slider_next" href="#"></button></div>
 </div>
-<!--
-  <div class="banner-slider slick-dotted" role="toolbar">
-  <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
-  <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
-<ul class="slick-dots" style="display: block;" role="tablist"></ul>
-</div>
+<!-- End of Flickr slider -->
 
-<div class="banner-slider">
-    <div class="banner" style="background: url('images/balloons.jpg'); background-repeat: no-repeat; background-size: cover;" data-thumb="images/balloons.jpg"></div>
-    <div class="banner" style="background: url('images/penguins.jpg'); background-repeat: no-repeat; background-size: cover;" data-thumb="images/penguins.jpg"></div>
-    <div class="banner" style="background: url('images/umbrellas.jpg'); background-repeat: no-repeat; background-size: cover;" data-thumb="images/umbrellas.jpg"></div>
-  </div>
-      -->
-
+<!-- Beginning of container -->
 <div class="container">
 
     <div class="template">
         <h1>Bristol Photography Group</h1>
         <p class="lead">
-            I have started this group
-            as I found that there were no Meetup Groups in Bristol about Photography, it's also been started as didn't know
-            where to go to learn about photography.<br /> Purpose of the group is for like-minded people to get together,
-            learn new skills, get inspiration from others, etc.<br /> This group is for people who are interested in taking
-            up photography, novice photographers who want to learn more, avid photographers and anyone in between.
+            I have started this group as I found that there were no Meetup Groups in Bristol about Photography, it's also been started
+            as didn't know where to go to learn about photography.<br /> Purpose of the group is for like-minded
+            people to get together, learn new skills, get inspiration from others, etc.<br /> This group is for people who
+            are interested in taking up photography, novice photographers who want to learn more, avid photographers and
+            anyone in between.
         </p>
         <p>
             Tom Page (founder)
@@ -84,58 +81,55 @@
     </div>
 
 </div>
-<!-- /.container -->
-
+<!-- End of container -->
+<!-- Beginning of container -->
 <div class="container">
 
-
-    {{#if user.displayName}}
-    <!-- Meetup -->
-    {{#withFirst events 3}}
+    <!-- If a user is signed in, display the first 3 Meetup events -->
+    {{#if user.displayName}} {{#withFirst events 3}}
 
     <div class='col-xs-12 col-sm-6 col-md-4 center'>
         <div id='groups' class='box'>
             <h3 class='title'>
-                <a href='/event/{{id}}'>{{title}}</a>
+                <!-- Allow the user to view the information, as they are signed in -->
+                <a href='/event/{{id}}' title='{{title}}'>{{title}}</a>
             </h3>
-            
+
             <div class='desc'>
                 {{{description}}}
-                <!-- {{{tdesc}}} -->
+
             </div>
 
         </div>
     </div>
-    {{/withFirst}}
-
-    <!-- end of Meetup -->
-    {{/if}} {{#unless user.displayName}}
-    <!-- Meetup -->
-    {{#withFirst events 3}}
+    {{/withFirst}} {{/if}}
+    <!-- End withFirst and if -->
+    <!-- Unless a user is signed in, display the first 3 Meetup events -->
+    {{#unless user.displayName}} {{#withFirst events 3}}
     <div class='col-xs-12 col-sm-6 col-md-4 center'>
         <div id='groups' class='box'>
             <h3 class='title'>
-                <a href='/signin'>{{title}}</a>
+                <!-- encourage the user to sign in -->
+                <a href='/signin' title='Sign in to find out about {{title}}'>{{title}}</a>
             </h3>
-           
+
             <div class='desc'>
                 {{{description}}}
-                <!-- {{{tdesc}}} -->
             </div>
-</div>
-
         </div>
-        
-    
-    {{/withFirst}}
 
-    <!-- end of Meetup -->
-    {{/unless}}
+    </div>
 
+
+    {{/withFirst}} {{/unless}}
+    <!-- End of withFirst and unless -->
 </div>
+<!-- End of container -->
+<!-- Beginning of footer -->
 <footer>
     <div class="left col-sm-4 col-xs-12">
-        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank" title="BPG code of conduct">
+        <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank"
+            title="BPG code of conduct">
         BPG Code of Conduct
         </a>
     </div>
@@ -149,6 +143,7 @@
         BPG 2010 | Website created by Lucy Stanton 2017
     </div>
 </footer>
+<!-- End of footer -->
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -172,7 +167,6 @@
 <script src="http://cdn.dcodes.net/2/flickr/js/cycle/jquery.cycle.all.js"></script>
 <script type="text/javascript" src="./javascripts/flickr.js"></script>
 <script src="./javascripts/animate.js"></script>
-
 
 </body>
 

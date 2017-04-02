@@ -37,79 +37,80 @@ var connectMongo = require('connect-mongo');
 var MongoStore = connectMongo(expressSession);
 
 var util = require('util');
+
+// Meetup strategy, key and secret used for authentication
 var MeetupStrategy = require('passport-meetup').Strategy;
 var MEETUP_KEY = "v6jlg85o3iqqu8iealugph71tr";
 var MEETUP_SECRET = "567qrgabj3oiv7l504i2b0c6o7";
 
-
+// Serialize/deserialize user (part of authentication)
 passport.serializeUser(function (user, done) {
-  done(null, user);
+    done(null, user);
 });
 
 passport.deserializeUser(function (obj, done) {
-  done(null, obj);
+    done(null, obj);
 });
 
+// Authenticate Meetup
+
 passport.use(new MeetupStrategy({
-  consumerKey: MEETUP_KEY,
-  consumerSecret: MEETUP_SECRET,
-  callbackURL: "http://127.0.0.1:3000/auth/meetup/callback"
-},
-  /*
-  function(token, tokenSecret, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
-      console.log(profile);
-      
-      // To keep the example simple, the user's Meetup profile is returned to
-      // represent the logged-in user.  In a typical application, you would want
-      // to associate the Meetup account with a user record in your database,
-      // and return that user instead.
-      return done(null, profile);
-    });
-  }
-  */
-/* http://stackoverflow.com/questions/26575813/syntaxerror-unexpected-end-of-input-using-express-for-node-js */
-  function (token, tokenSecret, profile, done) {
-    process.nextTick(function () {
-      var id = profile.id;
-      //find item in database that matches username to the current profile.id
-      /* http://stackoverflow.com/questions/11661545/how-to-get-a-callback-on-mongodb-collection-find */
-      userDb.findOne({ "username": { $eq: id } }, function (err, result) {
-        if (err) {
-          console.log(err);
-        }
-        else if (result) {
-          console.log(result);
-          console.log("User is already in database!");
-        }
-        else {
-          var userData = {
-            firstName: '',
-            displayName: profile.displayName,
-            userInfo: '',
-            userPhoto: '',
-            username: profile.id,
-            provider: profile.provider,
-            providerIdentifierField: 'id',
-            organiser: 'false'
-          };
-          console.log("User is not in database");
-          userDb.insert(userData, function (err, results) {
-            if (err) {
-              console.log(err);
-            }
-            else if (results) {
-              console.log(results);
-            }
-          });
-        }
+        consumerKey: MEETUP_KEY,
+        consumerSecret: MEETUP_SECRET,
+        callbackURL: "http://127.0.0.1:3000/auth/meetup/callback"
+    },
 
-      });
+    // http://stackoverflow.com/questions/26575813/syntaxerror-unexpected-end-of-input-using-express-for-node-js
+    function (token, tokenSecret, profile, done) {
+        process.nextTick(function () {
 
-      return done(null, profile);
-    });
-    /* // Set the provider data and include tokens
+            var id = profile.id;
+
+            // http://stackoverflow.com/questions/11661545/how-to-get-a-callback-on-mongodb-collection-find
+            // Find item in database that matches username to the current profile.id
+            userDb.findOne({
+                "username": {
+                    $eq: id
+                }
+            }, function (err, result) {
+                // If there is an error, display the error
+                if (err) {
+                    console.log(err);
+                }
+                // if a user is found, don't do anything with it (it does not need to be added to the database)
+                else if (result) {
+                    console.log(result);
+                }
+                // Else, add the profile data to the database
+                else {
+                    var userData = {
+                        firstName: '',
+                        displayName: profile.displayName,
+                        userInfo: '',
+                        userPhoto: '',
+                        username: profile.id,
+                        provider: profile.provider,
+                        providerIdentifierField: 'id',
+                        organiser: 'false'
+                    };
+
+                    userDb.insert(userData, function (err, results) {
+                        // If there is an error attempting to add it to the database, display error
+                        if (err) {
+                            console.log(err);
+                        }
+                        // if it adds to the database, do not display anything
+                        else if (results) {
+
+                        }
+                    });
+                }
+
+            });
+
+            return done(null, profile);
+        });
+        /* // Set the provider data and include tokens
      
      var providerData = profile._json;
      providerData.accessToken = accessToken;
@@ -119,15 +120,12 @@ passport.use(new MeetupStrategy({
 
 
 
-  }));
+    }));
 
-
+// Get the config script (access mongoDB)
 var config = require('./config');
 
 
-var meetupServices = require('./services/meetup');
-
-//var restrict = require('./auth/restrict');
 var passportConfig = require('./auth/passport-config');
 passportConfig();
 
@@ -140,9 +138,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 var hbsHelpers = exphbs.create({
-  helpers: require('handlebars-helpers')(),
-  defaultLayout: 'layout',
-  extname: 'hbs'
+    helpers: require('handlebars-helpers')(),
+    defaultLayout: 'layout',
+    extname: 'hbs'
 });
 
 app.engine('hbs', hbsHelpers.engine);
@@ -157,9 +155,15 @@ mongoose.connect(config.getDbConnectionString());
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
-app.use(require('express-session')({ secret: 'k657gb5dgha5uhnd6the4c3rf6', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({
+    secret: 'k657gb5dgha5uhnd6the4c3rf6',
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //saveUninitialized - create a session if nothing has been stored in it yet
@@ -172,46 +176,47 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(expressSession(
-  {
+app.use(expressSession({
     secret: 'private-key',
     saveUninitialized: false,
     resave: false,
     store: new MongoStore({
-      mongooseConnection: mongoose.connection
+        mongooseConnection: mongoose.connection
     })
-  }
-));
+}));
 
-
-
-
-
+// Below are routes to sign in and authenticate meetup
 app.get('/signin', function (req, res) {
-  res.render('signin', { title: 'Sign In', user: req.user });
+    res.render('signin', {
+        title: 'Sign In',
+        user: req.user
+    });
 });
 
 app.get('/auth/meetup',
-  passport.authenticate('meetup'),
-  function (req, res) {
+    passport.authenticate('meetup'),
+    function (req, res) {
 
-  });
+    });
 
 app.get('/auth/meetup/callback',
-  passport.authenticate('meetup', { failureRedirect: '/login' }),
-  function (req, res) {
+    passport.authenticate('meetup', {
+        failureRedirect: '/login'
+    }),
+    function (req, res) {
 
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+        // Successful authentication, redirect home.
+        res.redirect('/');
+    });
 
 app.use('/', index);
-
+// Controllers used to update the event JSON files
 var setupController = require('./controllers/setupController');
 var apiController = require('./controllers/apiController');
 setupController(app);
 apiController(app);
 
+// Find the routes to access the hbs pages
 app.use('/users', users);
 //app.use(restrict);
 app.use('/events', events);
@@ -225,20 +230,20 @@ app.use('/edit', editUser);
 app.use('/edit', update);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

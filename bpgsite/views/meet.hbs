@@ -1,4 +1,6 @@
+<!-- Beginning of header -->
 <header>
+    <!-- Beginning of navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top big">
         <div class="container">
             <div class="navbar-header">
@@ -9,11 +11,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- logos -->
                 <a class="navbar-brand" href="/">
-                    <img src="images/logosml.svg" id="logo" class="big" />
-                    <img src="images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
+                    <img src="/images/logosml.svg" id="logo" class="big" alt="Bristol Photography Group" />
+                    <img src="/images/logotext.svg" id="text" class="hidden-sm hidden-xs" />
                 </a>
+                <!-- End of logos -->
             </div>
+            <!-- nav-collapse -->
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="home">
@@ -26,12 +31,14 @@
                         <a href="/events">Events</a>
                     </li>
                     <li class="past-events"><a href="/past-events">Past Events</a></li>
+                    <!-- Unless a user has signed in, show the sign in/register buttons -->
                     {{#unless user.displayName}}
                     <li class="signin">
                         <a href="/signin">Sign In</a>
                     </li>
                     {{/unless}}
-                    <!-- if a user is signed in, display their name and allow them to log out -->
+                    <!-- End of unless -->
+                    <!-- If a user is signed in, display their name and allow them to log out -->
                     {{#if user.displayName}}
                     <li class="user">
                         <span>Hi, {{user.displayName}}!</span>
@@ -40,22 +47,23 @@
                         <a href="/users/logout">Sign Out</a>
                     </li>
                     {{/if}}
-
-
+                    <!-- End of if -->
                 </ul>
             </div>
-            <!--/.nav-collapse -->
+            <!-- End of nav-collapse -->
         </div>
     </nav>
+    <!-- End of nav -->
 </header>
-
+<!-- End of header -->
+<!-- Beginning of banner -->
 <div class="banner">
     <div class="banner-title">
         <h1 class="title">Meet the Organisers</h1>
     </div>
 </div>
-<!-- /.banner -->
-
+<!-- End of banner -->
+<!-- Beginning of container -->
 <div class="container">
 
     <div class="template">
@@ -63,16 +71,17 @@
     </div>
 
 
-
+    <!-- Beginning of boxes -->
     <div class="boxes">
 
-        <!-- Meetup -->
+        <!-- If a user is signed in, display all the organisers and use their array key -->
         {{#if user.displayName}} {{#each organisers as |val key|}}
 
         <div class='col-xs-12 col-sm-6 col-md-4 center'>
             <div id='{{lowercase firstName}}' class='organiser'>
                 <h3 class='title'>
-                    <a href='/user/{{key}}'>{{firstName}}</a>
+                    <!-- Allow the user to view the full details, as they are signed in -->
+                    <a href='/user/{{key}}' title='{{firstName}}'>{{firstName}}</a>
                 </h3>
                 <div class="image">
                     <img src="{{userPhoto}}" />
@@ -81,11 +90,8 @@
             </div>
         </div>
         {{/each}}
-
-        <!-- end of Meetup -->
-
-
-
+        <!-- End each -->
+        <!-- Display other organisers as dummy info -->
         <div class="col-xs-12 col-sm-6 col-md-4 center">
             <div class="organiser" id="tom">
                 <h3 class="title">
@@ -108,48 +114,58 @@
                 <div class="text">Hello, I'm Ems and I'm one of the assistant organisers.</div>
             </div>
         </div>
-    </div>
-    {{/if}} {{#unless user.displayName}} {{#each organisers as |val key|}}
+        <!-- End of dummy organisers -->
+        {{/if}}
+        <!-- End if -->
 
-    <div class='col-xs-12 col-sm-6 col-md-4 center'>
-        <div id='{{lowercase firstName}}' class='organiser'>
-            <h3 class='title'>
-                {{firstName}}
-            </h3>
-            <div class="image">
-                <img src="{{userPhoto}}" />
+        <!-- Unless a user is signed in, display all the organisers and use their array key -->
+        {{#unless user.displayName}} {{#each organisers as |val key|}}
+
+        <div class='col-xs-12 col-sm-6 col-md-4 center'>
+            <div id='{{lowercase firstName}}' class='organiser'>
+                <h3 class='title'>
+                    <!-- Display the organiser's name as a title - not a link -->
+                    {{firstName}}
+                </h3>
+                <div class="image">
+                    <img src="{{userPhoto}}" />
+                </div>
+                <div class="text">{{userInfo}}</div>
             </div>
-            <div class="text">{{userInfo}}</div>
         </div>
-    </div>
-    {{/each}}
-    <div class="col-xs-12 col-sm-6 col-md-4 center">
-        <div class="organiser" id="tom">
-            <h3 class="title">
-                Tom
-            </h3>
-            <div class="image">
-                <img src="./images/member_248924317.jpeg" />
+        {{/each}}
+        <!-- End each -->
+        <!-- Display other organisers as dummy info -->
+        <div class="col-xs-12 col-sm-6 col-md-4 center">
+            <div class="organiser" id="tom">
+                <h3 class="title">
+                    Tom
+                </h3>
+                <div class="image">
+                    <img src="./images/member_248924317.jpeg" />
+                </div>
+                <div class="text">Hi, I'm Tom and I'm the founder of the group and main organiser.</div>
             </div>
-            <div class="text">Hi, I'm Tom and I'm the founder of the group and main organiser.</div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 center">
-        <div class="organiser" id="ems">
-            <h3 class="title">
-                Ems
-            </h3>
-            <div class="image">
-                <img src="./images/ems.jpg" />
+        <div class="col-xs-12 col-sm-6 col-md-4 center">
+            <div class="organiser" id="ems">
+                <h3 class="title">
+                    Ems
+                </h3>
+                <div class="image">
+                    <img src="./images/ems.jpg" />
+                </div>
+                <div class="text">Hello, I'm Ems and I'm one of the assistant organisers.</div>
             </div>
-            <div class="text">Hello, I'm Ems and I'm one of the assistant organisers.</div>
         </div>
+        <!-- End of dummy organisers -->
+        {{/unless}}
+        <!-- End unless -->
     </div>
+    <!-- End of boxes -->
 </div>
-{{/unless}}
-
-
-</div>
+<!-- End of container -->
+<!-- Beginning of footer -->
 <footer>
     <div class="left col-sm-4 col-xs-12">
         <a href="https://www.meetup.com/Bristol-Photography-Group/pages/19714523/Bristol_Photography_Group_Code_of_Conduct/" target="_blank"
@@ -167,11 +183,12 @@
         BPG 2010 | Website created by Lucy Stanton 2017
     </div>
 </footer>
+<!-- End of footer -->
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document'<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="javascripts/bootstrap.min.js"></script>
 
 
