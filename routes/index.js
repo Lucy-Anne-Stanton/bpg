@@ -6,6 +6,11 @@ var express = require('express');
 var router = express.Router();
 var truncate = require('truncate-html');
 
+var app = express();
+// Call in the controllers used to update the event JSON files
+var setupController = require('../controllers/setupController');
+var apiController = require('../controllers/apiController');
+
 var json = require('../public/json/upcomingEvents.json');
 // The events are added to an events array
 var events = []
@@ -32,6 +37,10 @@ for (var i = 0, len = events.length; i < len; i++) {
 
 // GET home page and send the username and description array to the page
 router.get('/', function (req, res, next) {
+// Use the controllers used to update the event JSON files
+setupController(app);
+apiController(app);
+
     res.render('index', {
         title: 'Home',
         user: req.user,

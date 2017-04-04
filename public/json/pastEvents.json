@@ -1,5 +1,41 @@
 [
   {
+    "created": 1378317152000,
+    "id": "qzqjrgywgbcb",
+    "name": "April Photography Social",
+    "status": "past",
+    "time": 1491048000000,
+    "updated": 1491142137000,
+    "utc_offset": 3600000,
+    "waitlist_count": 0,
+    "yes_rsvp_count": 36,
+    "venue": {
+      "id": 20026932,
+      "name": "The Bank Tavern",
+      "lat": 51.455928802490234,
+      "lon": -2.5939929485321045,
+      "repinned": false,
+      "address_1": "8 St Johhs St, Bristol",
+      "city": "BS1 2HR",
+      "country": "gb",
+      "localized_country_name": "United Kingdom"
+    },
+    "group": {
+      "created": 1262368471000,
+      "name": "Bristol Photography Group",
+      "id": 1575517,
+      "join_mode": "open",
+      "lat": 51.45000076293945,
+      "lon": -2.5999999046325684,
+      "urlname": "Bristol-Photography-Group",
+      "who": "BPG-ers"
+    },
+    "link": "https://www.meetup.com/Bristol-Photography-Group/events/232899793/",
+    "description": "<p><img src=\"https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/7/4/a/e/600_458909870.jpeg\" /></p> <p><b><b>April Photography Social</b></b></p> <p>There will also be a FREE buffet as long as I get 20 people or more</p> <p>The socials are generally held on the first Saturday of each month, starting at 1pm</p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"https://www.google.co.uk/maps/place/The+Bank+Tavern/@51.4564789,-2.5938352,16z/data=%214m2%213m1%211s0x0:0x75c03f3575b81fcb\">Location Details </a>(Address: The Bank Tavern. 8 John Street. Bristol, BS1 2HR)</p> <p><a href=\"http://www.tripadvisor.co.uk/Attraction_Review-g186220-d5912751-Reviews-The_Bank_Tavern-Bristol_England.html\">Bank Tavern TripAdvisor review</a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> ",
+    "how_to_find_us": "Meet inside - area will be set aside for us",
+    "visibility": "public_limited"
+  },
+  {
     "created": 1488064789000,
     "duration": 5400000,
     "id": "237989479",
@@ -515,43 +551,6 @@
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/234976507/",
     "description": "<p>TBC</p> ",
     "how_to_find_us": "Meet at The Watershed",
-    "visibility": "public_limited"
-  },
-  {
-    "created": 1478090535000,
-    "duration": 6300000,
-    "id": "235292493",
-    "name": "December Night Walk",
-    "status": "past",
-    "time": 1481745600000,
-    "updated": 1481814758000,
-    "utc_offset": 0,
-    "waitlist_count": 0,
-    "yes_rsvp_count": 11,
-    "venue": {
-      "id": 20495232,
-      "name": "The Christmas Steps",
-      "lat": 51.4560432434082,
-      "lon": -2.596395969390869,
-      "repinned": false,
-      "address_1": "Christmas Steps",
-      "city": "Bristol",
-      "country": "GB",
-      "localized_country_name": "United Kingdom"
-    },
-    "group": {
-      "created": 1262368471000,
-      "name": "Bristol Photography Group",
-      "id": 1575517,
-      "join_mode": "open",
-      "lat": 51.45000076293945,
-      "lon": -2.5999999046325684,
-      "urlname": "Bristol-Photography-Group",
-      "who": "BPG-ers"
-    },
-    "link": "https://www.meetup.com/Bristol-Photography-Group/events/235292493/",
-    "description": "<p><img src=\"http://photos2.meetupstatic.com/photos/event/c/9/c/600_455703228.jpeg\" /></p> <p><i>Image source: Thomas Page</p> <p></i></p> <p>December Night Walk around Christmas Steps area</p> <p><b>December's optional theme/colour: </b>Something star-shaped/Gold</p> <p><b>Trivia Fact:</b><br/>The Gloucestershire County Cricket Club played its initial first-class match, which against Surrey CCC at Durdham Down on 2, 3 and 4 June 1870.</p> <p><b>Map of meeting location:</b> <b><a href=\"https://www.google.co.uk/maps/place/The+Christmas+Steps/@51.4560135,-2.5964936,15z/data=!4m2!3m1!1s0x0:0x834dd5007c246d0d?sa=X&amp;ved=0ahUKEwimgNT794nQAhVkGsAKHaxlARoQ_BIIhgEwCg\">The Christmas Steps</a></b><br/>(Address: 2 Christmas Steps, Bristol BS1 5BS)<br/>(Google Maps location not 100% accurate)</p> <p><b>Info about Christmas Steps area: </b><a href=\"http://www.christmasstepsartsquarter.co.uk/history/\">www.christmasstepsartsquarter.co.uk/history</a></p> <p><br/>Re: Uploading photos - Please can you upload a maximum of <b>4 photos ONLY</b>, if you have more please put them on <a href=\"https://www.flickr.com/groups/meetupbpg\">Flickr</a>, there is limited space on Meetup</p> <p>Suggested Equipment:<br/>Tripod (optional)<br/>Suitable Clothing if chilly!<br/>Torch/Bike Lights (optional)<br/>Anything related to the theme (optional)</p> ",
-    "how_to_find_us": "Meet inside or outside if pub is busy",
     "visibility": "public_limited"
   }
 ]

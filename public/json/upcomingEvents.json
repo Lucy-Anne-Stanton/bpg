@@ -1,22 +1,22 @@
 [
   {
-    "created": 1378317152000,
-    "id": "qzqjrgywgbcb",
-    "name": "April Photography Social",
+    "created": 1491189138000,
+    "id": "238917023",
+    "name": "Castle Combe - Spring Action Day",
     "status": "upcoming",
-    "time": 1491048000000,
-    "updated": 1490655054000,
+    "time": 1491643800000,
+    "updated": 1491214050000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 36,
+    "yes_rsvp_count": 6,
     "venue": {
-      "id": 20026932,
-      "name": "The Bank Tavern",
-      "lat": 51.455928802490234,
-      "lon": -2.5939929485321045,
+      "id": 1613233,
+      "name": "Castle Combe Race Track",
+      "lat": 51.493595123291016,
+      "lon": -2.2176270484924316,
       "repinned": false,
-      "address_1": "8 St Johhs St, Bristol",
-      "city": "BS1 2HR",
+      "address_1": "Castle Combe",
+      "city": "SN14 7EY",
       "country": "gb",
       "localized_country_name": "United Kingdom"
     },
@@ -30,9 +30,9 @@
       "urlname": "Bristol-Photography-Group",
       "who": "BPG-ers"
     },
-    "link": "https://www.meetup.com/Bristol-Photography-Group/events/232899793/",
-    "description": "<p><img src=\"https://a248.e.akamai.net/secure.meetupstatic.com/photos/event/7/4/a/e/600_458909870.jpeg\" /></p> <p><b><b>April Photography Social</b></b></p> <p>There will also be a FREE buffet as long as I get 20 people or more</p> <p>The socials are generally held on the first Saturday of each month, starting at 1pm</p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"https://www.google.co.uk/maps/place/The+Bank+Tavern/@51.4564789,-2.5938352,16z/data=%214m2%213m1%211s0x0:0x75c03f3575b81fcb\">Location Details </a>(Address: The Bank Tavern. 8 John Street. Bristol, BS1 2HR)</p> <p><a href=\"http://www.tripadvisor.co.uk/Attraction_Review-g186220-d5912751-Reviews-The_Bank_Tavern-Bristol_England.html\">Bank Tavern TripAdvisor review</a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> <p><a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b><br/></b></a></p> ",
-    "how_to_find_us": "Meet inside - area will be set aside for us",
+    "link": "https://www.meetup.com/Bristol-Photography-Group/events/238917023/",
+    "description": "<p><img src=\"https://secure.meetupstatic.com/photos/event/7/4/9/3/600_459689843.jpeg\" /></p> <p>Image source: Thomas Page (<a href=\"https://www.meetup.com/Bristol-Photography-Group/members/8264917/\" class=\"linkified\">https://www.meetup.com/Bristol-Photography-Group/members/8264917/</a>) (Japfest 2012)</p> <p>Castle Combe - Spring Action Day - Saturday 8th April<br/>Castle Combe race track is located about 20 miles from Bristol and is a popular racing venue. The Spring Action day is the official start to the performance racing car season at Castle Coombe. It is an action packed day.</p> <p>Spring Action Day info (Castle Combe website) (<a href=\"https://castlecombecircuit.co.uk/shows/spring-action-day/8/4/2017/\" class=\"linkified\">https://castlecombecircuit.co.uk/shows/spring-action-day/8/4/2017/</a>)</p> <p>Ticket prices:<br/>Adult/Senior: £15/£10</p> <p>Suggested Equipment:<br/>Tripod (optional)<br/>Suitable Clothing if chilly!<br/>Picnic (food prices at the track can be pricey)</p> <p>Map of location: Castle Combe Race Track (<a href=\"https://www.google.co.uk/maps/place/Castle+Combe+Circuit/@51.4935115,-2.2200388,17z/data=%213m1%214b1%214m5%213m4%211s0x487179fc19542e41:0xfdd9ccaedb930702%218m2%213d51.4935115%214d-2.2178501\" class=\"linkified\">https://www.google.co.uk/maps/place/Castle+Combe+Circuit/@51.4935115,-2.2200388,17z/data=%213m1%214b1%214m5%213m4%211s0x487179fc19542e41:0xfdd9ccaedb930702%218m2%213d51.4935115%214d-2.2178501</a>)<br/>(Address: Castle Combe Race Track, Castle Combe, Wiltshire, SN14 7EY)<br/>(Google Maps location not 100% accurate)</p> <p>Getting there<br/>By Car<br/>The Castle Combe Circuit is 5 miles west of Chippenham on the B4039, just half a mile from the village of Castle Combe.</p> <p>By Rail<br/>Chippenham is on the main line from Paddington to Bristol Temple Meads. For travel enquiries, contact National Rail enquiries on 0845 7484950. Taxis are available at the station. One of the main taxi companies operating in Chippenham is Ezy's Taxis. They are contactable on 01249 650088.</p> <p>By Helicopter<br/>Castle Combe Circuit is situated 45 minutes from Bristol Airport and 90 minutes from Heathrow. Helicopter landing strictly by prior permission only (PPO). A landing fee is required. Contact the Castle Combe Circuit office for further details on 01249 782929.</p> <p>By Tardis/DeLorean DMC-12<br/>Tardis - you may arrive in the wrong era<br/>DeLorean DMC-12 - Must travel at 88mph!</p> <p>Map of Castle Combe Race Track</p> <p><img src=\"https://castlecombecircuit.co.uk/userfiles/images/2016%20Gate%20Colour%20Map.jpg\" /></p> ",
+    "how_to_find_us": "Meet in the Quarry car park (see map in event description)",
     "visibility": "public_limited"
   },
   {
@@ -42,10 +42,10 @@
     "name": "Challenge | Bristol",
     "status": "upcoming",
     "time": 1491732000000,
-    "updated": 1490385816000,
+    "updated": 1491256263000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 9,
+    "yes_rsvp_count": 16,
     "venue": {
       "id": 24587137,
       "name": "Coffee#1",
@@ -68,7 +68,7 @@
       "who": "BPG-ers"
     },
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/238662336/",
-    "description": "<p>Location inoformation: <a href=\"http://www.coffee1.co.uk/our-locations/welsh-back/\" class=\"linkified\">http://www.coffee1.co.uk/our-locations/welsh-back/</a></p> ",
+    "description": "<p>Location information: <a href=\"http://www.coffee1.co.uk/our-locations/welsh-back/\"><a href=\"http://www.coffee1.co.uk/our-locations/welsh-back/\" class=\"linkified\">http://www.coffee1.co.uk/our-locations/welsh-back/</a></a></p> <p>For the 3rd challenge of the year we're heading to the Welsh Back/Redcliffe area of Bristol. From here it's just a short walk to the harbourside, Temple Meads, Broadmead, Bedminster and Park Street.</p> <p>As usual the challenge involves:</p> <p>5 topics / 2 hours.  You can use any camera you like - mobile phone, iPad, DSLR, film, compact. The challenge is to capture something as interesting and unique as possible.  That could be, for example, an alternative angle, a different perspective or viewpoint, a close up, vibrant colour or unusual detail. Be creative.</p> <p>1.  Themes will be given out on the day by your event hosts at 11am and posted on the meetup site at this time</p> <p>2.  You have up to 2 hours to photograph the themes, shooting as many different versions and options as you like</p> <p>3.  Upload 5 final images : 1 for each theme only - feel free to put the rest on our Flickr site so everyone can see more of your work</p> <p>4.  Take time to look and comment on other members' images - and let them know what you like about their shot(s)</p> ",
     "visibility": "public_limited"
   },
   {
@@ -81,7 +81,7 @@
     "updated": 1490694482000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 3,
+    "yes_rsvp_count": 4,
     "venue": {
       "id": 24503535,
       "name": "The Kings Head",
@@ -118,7 +118,7 @@
     "updated": 1489410584000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 32,
+    "yes_rsvp_count": 33,
     "venue": {
       "id": 24943892,
       "name": "Prior's Wood",
@@ -154,7 +154,7 @@
     "updated": 1378317152000,
     "utc_offset": 3600000,
     "waitlist_count": 0,
-    "yes_rsvp_count": 4,
+    "yes_rsvp_count": 5,
     "venue": {
       "id": 7640452,
       "name": "TBC",
@@ -247,6 +247,7 @@
       "who": "BPG-ers"
     },
     "link": "https://www.meetup.com/Bristol-Photography-Group/events/233114142/",
+    "manual_attendance_count": 0,
     "description": "<p><b>Photography Social</b></p> <p>The socials are generally held on the <b>first Saturday of each month</b>, starting at <b>1pm</b></p> <p>Venue-wise the location changes on monthly basis so that people get to see other parts of the city, but it may change to a more permanent location further down the line.</p> <p>More information about location of pub can be found here<br/>--&gt;<a href=\"http://www.meetup.com/Bristol-Photography-Group\"><b>Location Details</b></a></p> ",
     "visibility": "public_limited"
   },

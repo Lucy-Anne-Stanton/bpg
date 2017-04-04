@@ -2,15 +2,23 @@
  * code used to animate and change the height of the navbar and logos
 **/
 
-$(document).ready(function(){
-    if (window.innerWidth < 700) {
-    $('#logo').addClass('noAnimate');
+$( document ).ready(function() {      
+    var is_mobile = false;
+
+    if( $('#text').css('display')=='none') {
+        is_mobile = true;       
+    }
+
+    // now i can use is_mobile to run javascript conditionally
+
+    if (is_mobile == true) {
+        //Conditional script here
+        $('#logo').addClass('noAnimate');
   
   $('.navbar.navbar-inverse.navbar-fixed-top').addClass('shrink');
   $('.navbar.navbar-inverse.navbar-fixed-top').removeClass('big');
-  } else {
-
-// Scroll code
+    } else {
+        // Scroll code
 
 $(window).scroll(function() {
     // If it scrolls more than 50 add the scrink class and remove the big class
@@ -97,6 +105,5 @@ $(window).scroll(function(){
         } 
     }
 });
-  }
-})
-
+    }
+ });

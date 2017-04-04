@@ -29,15 +29,15 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 h1 {
-    font-size:1.786em;
+    font-size:1.786rem;
 }
 
 h2 {
-    font-size: 1.429em;
+    font-size: 1.429rem;
 }
 
 h3, h4, h5, h6 {
-    font-size: 1.286em;
+    font-size: 1.286rem;
 }
 
 .title {
@@ -743,7 +743,7 @@ a.instagram:before {
     width: 100%;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-device-width: 768px) {
 
     body {
         padding-bottom: 6.429em;

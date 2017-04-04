@@ -57,7 +57,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new MeetupStrategy({
         consumerKey: MEETUP_KEY,
         consumerSecret: MEETUP_SECRET,
-        callbackURL: "http://127.0.0.1:3000/auth/meetup/callback"
+        callbackURL: "/auth/meetup/callback"
     },
 
     // http://stackoverflow.com/questions/26575813/syntaxerror-unexpected-end-of-input-using-express-for-node-js
@@ -210,11 +210,8 @@ app.get('/auth/meetup/callback',
     });
 
 app.use('/', index);
-// Controllers used to update the event JSON files
-var setupController = require('./controllers/setupController');
-var apiController = require('./controllers/apiController');
-setupController(app);
-apiController(app);
+
+
 
 // Find the routes to access the hbs pages
 app.use('/users', users);
