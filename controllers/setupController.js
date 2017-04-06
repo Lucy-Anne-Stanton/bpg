@@ -2,6 +2,12 @@
  * retreives and saves events into JSON files
 */
 
+/** This was consulted when attempting to display events with JSON:
+* http://stackoverflow.com/questions/10011011/using-node-js-how-do-i-read-a-json-object-into-server-memory
+* http://stackoverflow.com/questions/10232574/handlebars-js-parse-object-instead-of-object-object
+* http://stackoverflow.com/questions/14875112/how-can-i-pass-json-to-client-using-node-js-hbs-express
+* http://stackoverflow.com/questions/34156282/how-do-i-save-json-to-local-text-file
+**/
 'use strict';
 var express = require('express');
 var router = express.Router();

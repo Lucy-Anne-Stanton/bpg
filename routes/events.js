@@ -5,13 +5,12 @@
 var express = require('express');
 var router = express.Router();
 var truncate = require('truncate-html');
-
 var json = require('../public/json/upcomingEvents.json');
 
 // The events are added to an events array
 var events = []
 events = json;
-
+// Worked out how to use for loop from this: http://stackoverflow.com/questions/33986989/can-routes-in-express-be-declared-with-a-loop
 // Create an array to store the required data into
 var descArray = [];
 // For each event...
